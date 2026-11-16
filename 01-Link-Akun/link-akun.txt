@@ -1,20 +1,12 @@
 IDENTITAS MAHASISWA
-
 Nama        : Faizal Afif N
 NIM         : 202531420001
 Mata Kuliah : Komputasi Numerik
 
 LINK AKUN
-
-1. GitHub:
-   https://github.com/faizalafifnaufal-lang
-
-2. Google Colab:
-   [Masukkan link notebook Google Colab setelah dibuat]
-
-3. LinkedIn:
-   [Masukkan link profil LinkedIn setelah dibuat]
+1. GitHub: https://github.com/faizalafifnaufal-lang
+2. Google Colab: https://colab.research.google.com/github/faizalafifnaufal-lang/Komputasi-Numerik./blob/main/SPL_Eliminasi_Gauss.ipynb
+3. LinkedIn: https://www.linkedin.com/in/faizal-afif-naufal-0babb144a/
 
 REPOSITORY TUGAS:
-
-https://github.com/faizalafifnaufal-lang/Komputasi-Numerik
+https://github.com/faizalafifnaufal-lang/Komputasi-Numerik.
