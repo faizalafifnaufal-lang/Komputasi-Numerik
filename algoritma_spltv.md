@@ -1,0 +1,31 @@
+
+ALGORITMA PENYELESAIAN SPLTV
+METODE ELIMINASI GAUSS
+
+Mulai
+
+1. Masukkan koefisien persamaan:
+   a11, a12, a13, b1
+   a21, a22, a23, b2
+   a31, a32, a33, b3
+
+2. Bentuk matriks augmented:
+   [a11 a12 a13 | b1]
+   [a21 a22 a23 | b2]
+   [a31 a32 a33 | b3]
+
+3. Lakukan eliminasi Gauss:
+   a. Ubah elemen di bawah pivot pertama
+      menjadi nol.
+   b. Ubah elemen di bawah pivot kedua
+      menjadi nol.
+   c. Peroleh matriks segitiga atas.
+
+4. Lakukan substitusi mundur:
+   a. Hitung nilai z.
+   b. Hitung nilai y.
+   c. Hitung nilai x.
+
+5. Tampilkan nilai x, y, dan z.
+
+Selesai
