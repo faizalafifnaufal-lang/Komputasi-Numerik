@@ -1,0 +1,7 @@
+Platform AI: ChatGPT
+
+1. Prompt untuk membuat kode Python (Nomor 5 & 6):
+"Buatkan kode Python menggunakan NumPy untuk menyelesaikan Sistem Persamaan Linear 3 Variabel (SPLTV) dengan metode Eliminasi Gauss, bagi menjadi beberapa cell."
+
+2. Prompt untuk menambahkan penjelasan detail (Nomor 7):
+"Tambahkan komentar penjelasan detail pada setiap baris kode dan setiap cell pada kode Eliminasi Gauss sebelumnya."
