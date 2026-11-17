@@ -1,93 +1,19 @@
-Prompt untuk membuat kode Python (Nomor 5 & 6):
+Platform AI yang Digunakan: Gemini
+Mata Kuliah: Komputasi Numerik
+Materi: Penyelesaian Sistem Persamaan Linear 3 Variabel (SPLTV) - Metode Eliminasi Gauss
 
-ALGORITMA PENYELESAIAN SPLTV METODE ELIMINASI GAUSS
+====================================================================
 
-Mulai
+Prompt 1 (Menyusun Algoritma Dasar SPLTV):
+"Buatkan algoritma penyelesaian Sistem Persamaan Linear 3 Variabel (SPLTV) menggunakan metode Eliminasi Gauss dalam format Markdown yang terstruktur dan mudah dipahami."
 
- 1. Masukkan koefisien persamaan: a11, a12, a13, b1 a21, a22, a23, b2 a31, a32, a33, b3
+Prompt 2 (Membuat Kode Python di Google Colab):
+"Buatkan kode program Python menggunakan library NumPy untuk menyelesaikan Sistem Persamaan Linear 3 Variabel dengan metode Eliminasi Gauss, dan pisahkan menjadi beberapa cell agar bisa dijalankan di Google Colab."
 
- 2. Bentuk matriks augmented: [a11 a12 a13 | b1] [a21 a22 a23 | b2] [a31 a32 a33 | b3]
+Prompt 3 (Menambahkan Keterangan Detail Tiap Baris dan Cell):
+"Edit kode Python Eliminasi Gauss sebelumnya dengan menambahkan komentar penjelasan yang detail pada setiap cell dan setiap baris kodenya."
 
- 3. Lakukan eliminasi Gauss: a. Ubah elemen di bawah pivot pertama menjadi nol. b. Ubah elemen di bawah pivot kedua menjadi nol. c. Peroleh matriks segitiga atas.
+Prompt 4 (Membuat Dokumentasi Tugas / README):
+"Buatkan dokumentasi atau penjelasan singkat mengenai isi repositori Komputasi Numerik ini untuk melengkapi file tugas di GitHub."
 
- 4. Lakukan substitusi mundur: a. Hitung nilai z. b. Hitung nilai y. c. Hitung nilai x.
-
- 5. Tampilkan nilai x, y, dan z.
-
-Selesai
-
-Prompt untuk menambahkan penjelasan detail (Nomor 7):
-
-### Cell 1: Inisialisasi Matriks Augmented [A | b]
-Pada tahap ini, sistem persamaan linear tiga variabel (SPLTV) diubah ke dalam bentuk matriks augmented berukuran 3x4, di mana 3 kolom pertama adalah koefisien variabel (x, y, z) dan kolom terakhir adalah konstanta hasil persamaan.
-
-# Mendefinisikan matriks augmented [A | b] menggunakan tipe data float (desimal)
-A = [
-    [2.0, 1.0, -1.0, 8.0],    # Baris 1: 2x + y - z = 8
-    [-3.0, -1.0, 2.0, -11.0], # Baris 2: -3x - y + 2z = -11
-    [-2.0, 1.0, 2.0, -3.0]    # Baris 3: -2x + y + 2z = -3
-]
-
-n = len(A) # Menyimpan jumlah baris/persamaan (n = 3)
-
-print("Matriks Augmented Awal [A | b]:") # Menampilkan judul output
-for baris in A: # Melakukan perulangan untuk setiap baris pada matriks A
-    print([f"{val:6.2f}" for val in baris]) # Mencetak setiap elemen dengan format 2 angka di belakang koma
-     
-Matriks Augmented Awal [A | b]:
-['  2.00', '  1.00', ' -1.00', '  8.00']
-[' -3.00', ' -1.00', '  2.00', '-11.00']
-[' -2.00', '  1.00', '  2.00', ' -3.00']
-
-### Cell 2: Proses Eliminasi Gauss (Eliminasi Maju)
-Tahap ini bertujuan mengubah elemen-elemen di bawah diagonal utama (pivot) menjadi nol menggunakan operasi baris elementer, sehingga menghasilkan matriks segitiga atas.
-
-for i in range(n): # Perulangan untuk menentukan baris pivot (i = 0, 1, 2)
-    if A[i][i] == 0.0: # Mengecek apakah elemen diagonal utama (pivot) bernilai nol
-        for k in range(i + 1, n): # Mencari baris di bawahnya yang tidak bernilai nol
-            if A[k][i] != 0.0: # Jika ditemukan elemen bukan nol pada kolom yang sama
-                A[i], A[k] = A[k], A[i] # Menukar posisi baris (pivoting) agar tidak terjadi pembagian dengan nol
-                break # Menghentikan pencarian setelah baris berhasil ditukar
-
-    for j in range(i + 1, n): # Perulangan untuk memproses setiap baris di bawah baris pivot
-        faktor = A[j][i] / A[i][i] # Menghitung faktor pengali untuk mengeliminasi elemen di bawah pivot
-        for k in range(i, n + 1): # Perulangan untuk memperbarui seluruh elemen pada baris ke-j
-            A[j][k] = A[j][k] - faktor * A[i][k] # Operasi baris elementer: Baris_j = Baris_j - (faktor * Baris_i)
-
-print("Matriks Segitiga Atas (Hasil Eliminasi Gauss):") # Menampilkan judul matriks hasil eliminasi
-for baris in A: # Melakukan perulangan untuk setiap baris matriks segitiga atas
-    print([f"{val:6.2f}" for val in baris]) # Mencetak baris matriks dalam format rapi 2 desimal
-     
-Matriks Segitiga Atas (Hasil Eliminasi Gauss):
-['  2.00', '  1.00', ' -1.00', '  8.00']
-['  0.00', '  0.50', '  0.50', '  1.00']
-['  0.00', '  0.00', ' -1.00', '  1.00']
-
-### Cell 3: Proses Substitusi Mundur (Back Substitution)
-Setelah matriks segitiga atas terbentuk, nilai variabel dihitung secara berurutan dari baris paling bawah (nilai z), naik ke baris tengah (nilai y), hingga baris paling atas (nilai x).
-
-x = [0.0] * n # Membuat list kosong [0.0, 0.0, 0.0] untuk menampung hasil nilai x, y, dan z
-
-for i in range(n - 1, -1, -1): # Perulangan mundur dari baris terakhir (indeks 2) ke baris pertama (indeks 0)
-    x[i] = A[i][n] # Mengambil nilai konstanta (kolom terakhir) sebagai nilai awal
-    for j in range(i + 1, n): # Perulangan untuk mengurangkan variabel yang nilainya sudah diketahui sebelumnya
-        x[i] = x[i] - A[i][j] * x[j] # Memindahkan suku variabel yang sudah diketahui ke ruas kanan
-    x[i] = x[i] / A[i][i] # Membagi dengan koefisien diagonal utama untuk mendapatkan nilai variabel ke-i
-
-print("Penyelesaian SPLTV:") # Menampilkan judul hasil akhir
-print(f"Nilai x = {x[0]:.4f}") # Menampilkan nilai variabel x dengan 4 angka di belakang koma
-print(f"Nilai y = {x[1]:.4f}") # Menampilkan nilai variabel y dengan 4 angka di belakang koma
-print(f"Nilai z = {x[2]:.4f}") # Menampilkan nilai variabel z dengan 4 angka di belakang koma
-     
-Penyelesaian SPLTV:
-Nilai x = 2.0000
-Nilai y = 3.0000
-Nilai z = -1.0000
-
-Platform AI: ChatGPT
-
-1. Prompt untuk membuat kode Python (Nomor 5 & 6):
-"Buatkan kode Python menggunakan NumPy untuk menyelesaikan Sistem Persamaan Linear 3 Variabel (SPLTV) dengan metode Eliminasi Gauss, bagi menjadi beberapa cell."
-
-2. Prompt untuk menambahkan penjelasan detail (Nomor 7):
-"Tambahkan komentar penjelasan detail pada setiap baris kode dan setiap cell pada kode Eliminasi Gauss sebelumnya."
+====================================================================
